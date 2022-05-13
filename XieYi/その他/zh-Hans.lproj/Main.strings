@@ -1,0 +1,180 @@
+
+/* Class = "UITabBarItem"; title = "メッセージ"; ObjectID = "05H-IL-NYm"; */
+"05H-IL-NYm.title" = "消息";
+
+/* Class = "UILabel"; text = "ユーザー名前"; ObjectID = "1u2-GT-zbd"; */
+"1u2-GT-zbd.text" = "用户名";
+
+/* Class = "UIButton"; normalTitle = "予定を登録する"; ObjectID = "4Nl-2V-x7Y"; */
+"4Nl-2V-x7Y.normalTitle" = "添加预定";
+
+/* Class = "UIBarButtonItem"; title = "編集"; ObjectID = "7fo-op-bGQ"; */
+"7fo-op-bGQ.title" = "编辑";
+
+/* Class = "UILabel"; text = "工数"; ObjectID = "8DO-YS-yz3"; */
+"8DO-YS-yz3.text" = "工时";
+
+/* Class = "UINavigationItem"; title = "マイページ"; ObjectID = "8Qm-w8-NXK"; */
+"8Qm-w8-NXK.title" = "我的";
+
+/* Class = "UILabel"; text = "LonLabel"; ObjectID = "AdP-zD-BaN"; */
+"AdP-zD-BaN.text" = "LonLabel";
+
+/* Class = "UITabBarItem"; title = "メンバー"; ObjectID = "D01-1q-kSV"; */
+"D01-1q-kSV.title" = "成员";
+
+/* Class = "UINavigationItem"; title = "日報"; ObjectID = "Eoa-KV-4VC"; */
+"Eoa-KV-4VC.title" = "日报";
+
+/* Class = "UIBarButtonItem"; title = "編集"; ObjectID = "Fkb-6K-gZY"; */
+"Fkb-6K-gZY.title" = "编辑";
+
+/* Class = "UIButton"; normalTitle = "送信"; ObjectID = "Hqb-Fx-dWt"; */
+"Hqb-Fx-dWt.normalTitle" = "发送";
+
+/* Class = "UILabel"; text = "時間带"; ObjectID = "Jei-yp-b6r"; */
+"Jei-yp-b6r.text" = "时间段";
+
+/* Class = "UILabel"; text = "LatLabel"; ObjectID = "KXu-S8-d17"; */
+"KXu-S8-d17.text" = "LatLabel";
+
+/* Class = "UINavigationItem"; title = "ホーム"; ObjectID = "MLm-A1-lnP"; */
+"MLm-A1-lnP.title" = "主页";
+
+/* Class = "UILabel"; text = "プロジェクト名"; ObjectID = "Ml8-KM-uuI"; */
+"Ml8-KM-uuI.text" = "项目名";
+
+/* Class = "UILabel"; text = "出勤記録"; ObjectID = "Ncn-oj-W7u"; */
+"Ncn-oj-W7u.text" = "出勤记录";
+
+/* Class = "UILabel"; text = "～"; ObjectID = "P3T-T7-CxV"; */
+"P3T-T7-CxV.text" = "～";
+
+/* Class = "UINavigationItem"; title = "切り替え"; ObjectID = "PLg-kc-TuK"; */
+"PLg-kc-TuK.title" = "切换";
+
+/* Class = "UINavigationItem"; title = "メンバー"; ObjectID = "PTS-J5-b3F"; */
+"PTS-J5-b3F.title" = "成员";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "QOy-nI-VUf"; */
+"QOy-nI-VUf.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "SIQ-sD-yFW"; */
+"SIQ-sD-yFW.text" = "Label";
+
+/* Class = "UILabel"; text = "日報追加"; ObjectID = "TIu-Hm-df0"; */
+"TIu-Hm-df0.text" = "添加日报";
+
+/* Class = "UIButton"; normalTitle = "キャンセル"; ObjectID = "UqM-aB-QoY"; */
+"UqM-aB-QoY.normalTitle" = "取消";
+
+/* Class = "UIButton"; normalTitle = "ログイン"; ObjectID = "VAl-ES-lBF"; */
+"VAl-ES-lBF.normalTitle" = "登录";
+
+/* Class = "UITextField"; placeholder = "ノート"; ObjectID = "WHD-zN-51t"; */
+"WHD-zN-51t.placeholder" = "备注";
+
+/* Class = "UILabel"; text = "終了時間"; ObjectID = "X03-dr-0vO"; */
+"X03-dr-0vO.text" = "结束时间";
+
+/* Class = "UITextField"; placeholder = "地点"; ObjectID = "X8c-9w-naL"; */
+"X8c-9w-naL.placeholder" = "地点";
+
+/* Class = "UITabBarItem"; title = "マイページ"; ObjectID = "XFf-eq-7Ud"; */
+"XFf-eq-7Ud.title" = "我的";
+
+/* Class = "UITabBarItem"; title = "日報"; ObjectID = "Y6u-RL-EYh"; */
+"Y6u-RL-EYh.title" = "日报";
+
+/* Class = "UIButton"; normalTitle = "選択する"; ObjectID = "Y79-J5-AzW"; */
+"Y79-J5-AzW.normalTitle" = "选择";
+
+/* Class = "UIBarButtonItem"; title = "削除"; ObjectID = "Y9g-d5-9Aj"; */
+"Y9g-d5-9Aj.title" = "删除";
+
+/* Class = "UILabel"; text = "作業報告"; ObjectID = "Ye3-hy-QdP"; */
+"Ye3-hy-QdP.text" = "工作报告";
+
+/* Class = "UIButton"; normalTitle = "選択する"; ObjectID = "aq5-5Q-xBm"; */
+"aq5-5Q-xBm.normalTitle" = "选择";
+
+/* Class = "UIButton"; normalTitle = "登録する"; ObjectID = "awx-eX-V66"; */
+"awx-eX-V66.normalTitle" = "登录";
+
+/* Class = "UIBarButtonItem"; title = "全て選択"; ObjectID = "b5o-X5-q5s"; */
+"b5o-X5-q5s.title" = "全选";
+
+/* Class = "UILabel"; text = "パスウード"; ObjectID = "cIO-xf-IYx"; */
+"cIO-xf-IYx.text" = "密码";
+
+/* Class = "UIButton"; normalTitle = "選択する"; ObjectID = "d2S-oq-tZn"; */
+"d2S-oq-tZn.normalTitle" = "选择";
+
+/* Class = "UITabBarItem"; title = "メッセージ"; ObjectID = "d9M-Je-wnB"; */
+"d9M-Je-wnB.title" = "消息";
+
+/* Class = "UILabel"; text = "作業コード"; ObjectID = "dfS-m6-gsh"; */
+"dfS-m6-gsh.text" = "作业编码";
+
+/* Class = "UITabBarItem"; title = "メンバー"; ObjectID = "f2d-yb-SVz"; */
+"f2d-yb-SVz.title" = "成员";
+
+/* Class = "UITabBarItem"; title = "ホーム"; ObjectID = "fTG-MZ-GVX"; */
+"fTG-MZ-GVX.title" = "首页";
+
+/* Class = "UINavigationItem"; title = "メッセージ"; ObjectID = "gIy-GQ-0y4"; */
+"gIy-GQ-0y4.title" = "消息";
+
+/* Class = "UIBarButtonItem"; title = "全て選択"; ObjectID = "irZ-RX-Lil"; */
+"irZ-RX-Lil.title" = "全选";
+
+/* Class = "UIBarButtonItem"; title = "承認"; ObjectID = "jqW-06-VFq"; */
+"jqW-06-VFq.title" = "承认";
+
+/* Class = "UITextField"; placeholder = "ユーザー名を入力して下さい"; ObjectID = "kmD-u1-MIP"; */
+"kmD-u1-MIP.placeholder" = "请输入用户名";
+
+/* Class = "UILabel"; text = "開始時間"; ObjectID = "lCX-ce-EY3"; */
+"lCX-ce-EY3.text" = "开始时间";
+
+/* Class = "UILabel"; text = "Copyright @ 2021 Xieyi v1.0.0"; ObjectID = "m0t-RP-ths"; */
+"m0t-RP-ths.text" = "Copyright @ 2021 Xieyi";
+
+/* Class = "UILabel"; text = "ログイン"; ObjectID = "m9N-Jy-vNz"; */
+"m9N-Jy-vNz.text" = "登录";
+
+/* Class = "UITextField"; placeholder = "事件"; ObjectID = "nAq-sZ-fIG"; */
+"nAq-sZ-fIG.placeholder" = "事件";
+
+/* Class = "UITextField"; placeholder = "パスウードを入力して下さい"; ObjectID = "q96-zz-N9n"; */
+"q96-zz-N9n.placeholder" = "请输入密码";
+
+/* Class = "UINavigationItem"; title = "日報"; ObjectID = "qAi-hR-heQ"; */
+"qAi-hR-heQ.title" = "日报";
+
+/* Class = "UILabel"; text = "メールアドレス"; ObjectID = "rJN-rW-ekT"; */
+"rJN-rW-ekT.text" = "邮箱地址";
+
+/* Class = "UIButton"; normalTitle = "出勤中"; ObjectID = "rKF-qc-14Q"; */
+"rKF-qc-14Q.normalTitle" = "出勤中";
+
+/* Class = "UITabBarItem"; title = "ホーム"; ObjectID = "tVS-H4-FtS"; */
+"tVS-H4-FtS.title" = "首页";
+
+/* Class = "UILabel"; text = "ユーザー名"; ObjectID = "uo5-5z-RAM"; */
+"uo5-5z-RAM.text" = "用户名";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "v5Z-Kl-RxI"; */
+"v5Z-Kl-RxI.text" = "Location";
+
+/* Class = "UIButton"; normalTitle = "選択する"; ObjectID = "wPo-fc-BZ3"; */
+"wPo-fc-BZ3.normalTitle" = "选择";
+
+/* Class = "UIButton"; normalTitle = "選択する"; ObjectID = "wZA-h0-H9a"; */
+"wZA-h0-H9a.normalTitle" = "选择";
+
+/* Class = "UINavigationItem"; title = "作業場所管理"; ObjectID = "wdx-7D-lZc"; */
+"wdx-7D-lZc.title" = "工作地点管理";
+
+/* Class = "UILabel"; text = "作業場所"; ObjectID = "zDE-tF-Pct"; */
+"zDE-tF-Pct.text" = "工作地点";

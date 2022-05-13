@@ -1,0 +1,70 @@
+/* 
+  Localizable.strings
+  XieYi
+
+  Created by 写易 on 2020/11/24.
+  
+*/
+
+//英文资源
+
+//MARK: - COMMON
+"PERSONALINFO" = "Personal Info";
+"SYSTEM" = "System";
+"NAME" = "Name";
+"MOBILE" = "Mobile";
+"MAIL" = "Mail";
+"PLACEMANAGE" = "Place Management";
+"SIGNOUT" = "Signout";
+"REGIESTERED" = "Registered";
+"ALIAS" = "This Location's Alias";
+"DELETE" = "Delete";
+"CHANGECOMPANY" = "Change Company";
+"ARCHIVE" = "Archive";
+
+//MARK: - MESSAGE
+"ERROR" = "Error";
+"MESSAGE" = "Message";
+"OK" = "OK";
+"CONFIRM" = "Confirm";
+"CANCEL" = "Cancel";
+"EDIT" = "Edit";
+"MSG00" = "Do you want to log out?";
+"MSG01" = "Please enter the correct username and password.";
+"MSG02" = "Login sucessfully";
+"MSG03" = "The input information is incorrect, please re-enter.";
+"MSG04" = "Please enter an alias for the current location.";
+"MSG05" = "The current network is unavailable, please try again.";
+"MSG06" = "Do you want to change the current status?";
+"MSG07" = "Unregistered address";
+"MSG08" = "Failed to get location information, please give location permission and restart the program.";
+"MSG09" = "Please enter the correct alias.";
+"MSG10" = "Unknown Status";
+"MSG11" = "Please enter the area name.";
+"MSG12" = "Please select messages to delete.";
+"MSG13" = "Realy to delete the selected messages?";
+"MSG14" = "Please select a project name.";
+"MSG15" = "Please select a work code";
+"MSG16" = "Please input work time.";
+"MSG17" = "Message is too long.";
+"MSG18" = "Realy to confirm the selected reports?";
+"MSG19" = "Please select a report to delete.";
+"MSG20" = "Realy to cancel the Input items?";
+
+// EtOffice是株式会社写易为企业打造的一个多功能办公系统。
+// 摆脱传统的网页管理方式，随时掌上办公，实现企业内数字化的新工作方式。
+
+// 主要功能：
+// 考勤打卡，自动计算出勤时间。
+// 查看动态消息，审批通知第一时间知道。
+// 随时查看同事工作状态。
+// 日报查看，添加，管理。
+
+// EtOfficeは、株式会社写易によって企業向けに作成された多機能オフィスシステムです。
+// 従来のWeb管理方法を廃止し、いつでも手のひらで作業して、新しい作業方法を実現できます。
+
+// 主な的機能：
+// 出席時間が記録され、出席時間が自動的に計算されます。
+// メッセージを確認し、承認通知を受け取ります。
+// 同僚の作業状況をいつでも確認できます。
+// 日報を表示、追加、管理します。

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DailyDetailTableViewCell3" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZPI-b6-BCh" customClass="DailyDetailTableViewCell3" customModule="XieYi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZPI-b6-BCh" id="qa8-qQ-hEx">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Kaw-I0-dHS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="72.5"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" priority="999" constant="72.5" id="uv3-ac-ITx"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="HcD-M9-uJJ">
+                            <size key="itemSize" width="72" height="72"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Kaw-I0-dHS" secondAttribute="trailing" id="OIL-Ks-zV7"/>
+                    <constraint firstAttribute="bottom" secondItem="Kaw-I0-dHS" secondAttribute="bottom" id="lNV-IO-q3P"/>
+                    <constraint firstItem="Kaw-I0-dHS" firstAttribute="top" secondItem="qa8-qQ-hEx" secondAttribute="top" id="qs5-eE-I18"/>
+                    <constraint firstItem="Kaw-I0-dHS" firstAttribute="leading" secondItem="qa8-qQ-hEx" secondAttribute="leading" id="scT-oW-kTx"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="collection" destination="Kaw-I0-dHS" id="zbr-Jn-1yT"/>
+            </connections>
+            <point key="canvasLocation" x="-107.97101449275362" y="118.19196428571428"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

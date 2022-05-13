@@ -1,0 +1,40 @@
+PODS:
+  - ActionSheetPicker-3.0 (2.7.1)
+  - Alamofire (5.2.2)
+  - HandyJSON (5.0.2)
+  - IQKeyboardManagerSwift (6.5.6)
+  - ReachabilitySwift (5.0.0)
+  - SwiftyJSON (5.0.0)
+  - YYRefreshView (1.0.1)
+
+DEPENDENCIES:
+  - ActionSheetPicker-3.0
+  - Alamofire (~> 5.2.2)
+  - HandyJSON (~> 5.0.2)
+  - IQKeyboardManagerSwift
+  - ReachabilitySwift
+  - SwiftyJSON (~> 5.0.0)
+  - YYRefreshView
+
+SPEC REPOS:
+  trunk:
+    - ActionSheetPicker-3.0
+    - Alamofire
+    - HandyJSON
+    - IQKeyboardManagerSwift
+    - ReachabilitySwift
+    - SwiftyJSON
+    - YYRefreshView
+
+SPEC CHECKSUMS:
+  ActionSheetPicker-3.0: 36da254b97a09ff89679ecb8b8510bd3e5bdc773
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+  YYRefreshView: 018dbbaec0dec1d3adf8ba339582c7c562d13e7c
+
+PODFILE CHECKSUM: c959989887cf0afbb21ae442d3302dc459d5c47f
+
+COCOAPODS: 1.9.3

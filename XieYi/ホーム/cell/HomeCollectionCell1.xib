@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="HomeCollectionCell1" id="iN0-l3-epB" customClass="HomeCollectionCell1" customModule="XieYi" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="249" height="128"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="folder.badge.plus" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ttu-L6-57u">
+                    <rect key="frame" x="75.5" y="9" width="99.5" height="95.5"/>
+                    <color key="tintColor" systemColor="systemIndigoColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="ttu-L6-57u" secondAttribute="height" multiplier="1:1" id="cNp-Ft-H2c"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SCL-aI-qaR">
+                    <rect key="frame" x="109" y="106" width="31.5" height="14"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="14" id="iOZ-uj-Bme"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
+                    <color key="textColor" systemColor="systemIndigoColor"/>
+                    <color key="highlightedColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ttu-L6-57u" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="5bn-Rn-Fov"/>
+                <constraint firstItem="ttu-L6-57u" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="8" id="8cC-4H-Zgd"/>
+                <constraint firstItem="SCL-aI-qaR" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="FbJ-BP-D1p"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="SCL-aI-qaR" secondAttribute="bottom" constant="8" id="Yza-Gt-Cx5"/>
+                <constraint firstItem="SCL-aI-qaR" firstAttribute="top" secondItem="ttu-L6-57u" secondAttribute="bottom" id="cuK-d1-frS"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="image" destination="ttu-L6-57u" id="Fcq-wU-VCn"/>
+                <outlet property="textLabel" destination="SCL-aI-qaR" id="C7X-dm-tJu"/>
+            </connections>
+            <point key="canvasLocation" x="193.47826086956522" y="87.053571428571431"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="folder.badge.plus" catalog="system" width="128" height="91"/>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

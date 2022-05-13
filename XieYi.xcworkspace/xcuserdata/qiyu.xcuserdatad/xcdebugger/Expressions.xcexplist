@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "MemberViewController.tableView(_:cellForRowAt:):MemberViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "sectionStuffDic">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "MemberViewController.makeDataList(sectionList:):MemberViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.dataArray">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in MemberViewController.getStuffListRequest():MemberViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sectionNameArray">
+            </PersistentString>
+            <PersistentString
+               value = "sectionStuffDic">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "closure #1 in ChangeCompanyViewController.setTenantRequest(tenant:):ChangeCompanyViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "response.data">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
