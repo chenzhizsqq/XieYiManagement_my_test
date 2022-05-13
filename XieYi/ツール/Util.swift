@@ -4,7 +4,7 @@
 //
 //  共通ユーティリティ
 //  Created by Qi Yu on 2021/09/18.
-//  
+//  test
 
 import Foundation
 import CoreLocation
