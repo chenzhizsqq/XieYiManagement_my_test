@@ -29,14 +29,15 @@ class DailyViewController: ExMainViewController, UITableViewDelegate, UITableVie
         super.viewDidLoad()
         
         tipsLabel.isHidden = true
-        uid = getUserIdFunc()
-        print(uid)
+
         customUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         if isLogin() {
+            uid = getUserIdFunc()
+            print(uid)
             self.getReportListRequest(uid: uid)
         } else {
             let storyboard = self.storyboard!

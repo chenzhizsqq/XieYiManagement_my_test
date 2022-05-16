@@ -41,9 +41,7 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if(Util.checkLocationManager()){
-            setupLocationManager()
-        }
+        setupLocationManager()
         
         CustomUI()
     }
@@ -55,12 +53,23 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         registerAreaBtn.layer.cornerRadius = 18.0
         noteTextField.delegate = self
         areaTextField.delegate = self
+        
+        latLabel.text = String(String(format: "%.6f", latitudeN))
+        lonLabel.text = String(String(format: "%.6f", longitudeN))
+        currentArea = isInArea(lat: Double(String(format: "%.6f", latitudeN)) ?? 0.0, lon: Double(String(format: "%.6f", longitudeN)) ?? 0.0)
+        locationLabel.text = currentArea
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print(code)
         checkInBtn.setTitle(codeToString(code: code), for: .normal)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     func codeToString(code: Int) -> String {
@@ -164,10 +173,9 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
                     let jsonData = JSON(data)
                     
                     if (jsonData["status"].intValue == 0) {
-                        self.dismiss(animated: true) {
-                            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserSetStatus"), object: nil)
-                            NotificationCenter.default.removeObserver(self)
-                        }
+                        self.navigationController?.popViewController(animated: true)
+                        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserSetStatus"), object: nil)
+                        NotificationCenter.default.removeObserver(self)
                     } else {
                         Util.showMessageAlert(currentVC: self, msg: jsonData["message"].object as! String)
                         print(jsonData["message"].object as! String)
@@ -185,14 +193,7 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         locationManager = CLLocationManager()
         // 権限をリクエスト
         guard let locationManager = locationManager else { return }
-        locationManager.requestWhenInUseAuthorization()
-        // マネージャの設定
-        let status = CLLocationManager.authorizationStatus()
-        // ステータスごとの処理
-        if status == .authorizedWhenInUse {
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-        }
+        locationManager.delegate = self
     }
     
     /// "位置情報を取得際、位置情報をラベルに反映する
@@ -263,5 +264,31 @@ extension StatusConfirmViewController {
         lonLabel.text = String(String(format: "%.6f", longitude!))
         currentArea = isInArea(lat: Double(String(format: "%.6f", latitude!)) ?? 0.0, lon: Double(String(format: "%.6f", longitude!)) ?? 0.0)
         locationLabel.text = currentArea
+    }
+    
+    /// 位置情報の許可のステータス変更で呼ばれる
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("didChangeAuthorization status=\(status)")
+        switch status {
+        case .authorizedAlways:
+            // 位置情報取得を開始
+            manager.startUpdatingLocation()
+            break
+        case .authorizedWhenInUse:
+            // 位置情報取得を開始
+            manager.startUpdatingLocation()
+            break
+        case .notDetermined:
+            manager.requestAlwaysAuthorization()
+            break
+        case .restricted:
+            manager.requestAlwaysAuthorization()
+            break
+        case .denied:
+            manager.requestAlwaysAuthorization()
+            break
+        default:
+            break
+        }
     }
 }

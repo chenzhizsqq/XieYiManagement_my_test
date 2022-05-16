@@ -19,9 +19,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UITab
     @IBOutlet weak var tipsLabel: UILabel!
     
     // 緯度
-    var latitudeN: String = ""
+    var latitudeN: String = "0"
     // 経度
-    var longitudeN: String = ""
+    var longitudeN: String = "0"
     // ロケーションマネージャ
     var locationManager: CLLocationManager!
     // 别名
@@ -143,19 +143,9 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UITab
     /// ロケーションマネージャのセットアップ
     func setupLocationManager() {
         locationManager = CLLocationManager()
-        
         // 権限をリクエスト
         guard let locationManager = locationManager else { return }
-        locationManager.requestWhenInUseAuthorization()
-        
-        // マネージャの設定
-        let status = CLLocationManager.authorizationStatus()
-        
-        // ステータスごとの処理
-        if status == .authorizedWhenInUse {
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-        }
+        locationManager.delegate = self
     }
     
     /// "位置情報を取得"ボタンを押下した際、位置情報をラベルに反映する
@@ -163,11 +153,12 @@ class LocationViewController: UIViewController, CLLocationManagerDelegate, UITab
     func getLocationInfo() {
         // マネージャの設定
         let status = CLLocationManager.authorizationStatus()
-        if status == .denied {
-            print("ERROR")
-        } else if status == .authorizedWhenInUse {
+        if status == .authorizedAlways || status == .authorizedWhenInUse {
             print(latitudeN, longitudeN)
             locationHandler()
+        }
+        else  {
+            print("ERROR")
         }
     }
     
@@ -241,5 +232,31 @@ extension LocationViewController {
         // 位置情報を格納する
         latitudeN = String(latitude!)
         longitudeN = String(longitude!)
+    }
+    
+    /// 位置情報の許可のステータス変更で呼ばれる
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("didChangeAuthorization status=\(status)")
+        switch status {
+        case .authorizedAlways:
+            // 位置情報取得を開始
+            manager.startUpdatingLocation()
+            break
+        case .authorizedWhenInUse:
+            // 位置情報取得を開始
+            manager.startUpdatingLocation()
+            break
+        case .notDetermined:
+            manager.requestAlwaysAuthorization()
+            break
+        case .restricted:
+            manager.requestAlwaysAuthorization()
+            break
+        case .denied:
+            manager.requestAlwaysAuthorization()
+            break
+        default:
+            break
+        }
     }
 }

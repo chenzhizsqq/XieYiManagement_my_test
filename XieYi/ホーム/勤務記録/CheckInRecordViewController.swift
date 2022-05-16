@@ -21,6 +21,16 @@ class CheckInRecordViewController: ExSubViewController, UITableViewDelegate, UIT
         customUI()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     @IBAction func closeBtnClick(_ sender: UIButton) {
         self.dismiss(animated: true) {
             

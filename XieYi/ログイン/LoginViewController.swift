@@ -57,18 +57,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate, CLLocationMana
     // MARK: - LocationManager
     /// ロケーションマネージャのセットアップ
     func setupLocationManager() {
-        
         locationManager = CLLocationManager()
         // 権限をリクエスト
         guard let locationManager = locationManager else { return }
-        locationManager.requestWhenInUseAuthorization()
-        // マネージャの設定
-        let status = CLLocationManager.authorizationStatus()
-        // ステータスごとの処理
-        if status == .authorizedWhenInUse {
-            locationManager.delegate = self
-            locationManager.startUpdatingLocation()
-        }
+        locationManager.delegate = self
     }
     
     /// "位置情報を取得際、位置情報をラベルに反映する
@@ -156,5 +148,31 @@ extension LoginViewController {
         // 位置情報を格納する
         latitudeN = String(latitude!)
         longitudeN = String(longitude!)
+    }
+    
+    /// 位置情報の許可のステータス変更で呼ばれる
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        print("didChangeAuthorization status=\(status)")
+        switch status {
+        case .authorizedAlways:
+            // 位置情報取得を開始
+            manager.startUpdatingLocation()
+            break
+        case .authorizedWhenInUse:
+            // 位置情報取得を開始
+            manager.startUpdatingLocation()
+            break
+        case .notDetermined:
+            manager.requestAlwaysAuthorization()
+            break
+        case .restricted:
+            manager.requestAlwaysAuthorization()
+            break
+        case .denied:
+            manager.requestAlwaysAuthorization()
+            break
+        default:
+            break
+        }
     }
 }

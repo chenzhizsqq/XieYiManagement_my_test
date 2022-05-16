@@ -4,10 +4,9 @@
 //
 //  共通ユーティリティ
 //  Created by Qi Yu on 2021/09/18.
-//  
+//
 
 import Foundation
-import CoreLocation
 import UIKit
 
 class Util: NSObject {
@@ -99,51 +98,5 @@ class Util: NSObject {
         
         // ダイアログ表示
         currentVC!.present(alertController, animated: true, completion: nil)
-    }
-    
-    
-    //MARK: - CheckLocationManager
-    /// ロケーションマネージャのチェック
-    static func checkLocationManager() -> Bool {
-        // 地址管理
-        var _locationManager: CLLocationManager!
-        _locationManager = CLLocationManager()
-        
-        // 権限をリクエスト
-        guard let locationManager = _locationManager else { return false }
-        locationManager.requestWhenInUseAuthorization()
-        
-        
-        if CLLocationManager.locationServicesEnabled() {
-            if #available(iOS 14.0, *) {
-                switch locationManager.authorizationStatus {
-                case .notDetermined, .restricted, .denied:
-                    print("14 No access")
-                    return false
-                case .authorizedAlways, .authorizedWhenInUse:
-                    print("14 Access")
-                    return true
-                @unknown default:
-                    break
-                }
-            } else {
-                
-                switch CLLocationManager.authorizationStatus() {
-                    case .notDetermined, .restricted, .denied:
-                        print("No access")
-                        return false
-                    case .authorizedAlways, .authorizedWhenInUse:
-                        print("Access")
-                        return true
-                    @unknown default:
-                        break
-                }
-            }
-        } else {
-            print("Location services are not enabled")
-            return false
-        }
-        
-        return false
     }
 }
