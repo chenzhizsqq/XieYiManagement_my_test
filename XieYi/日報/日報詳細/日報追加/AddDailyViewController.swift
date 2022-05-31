@@ -20,6 +20,7 @@ class AddDailyViewController: ExSubViewController {
     @IBOutlet weak var startBtn: UIButton!
     @IBOutlet weak var endBtn: UIButton!
     @IBOutlet weak var reportTextView: UITextView!
+    @IBOutlet weak var editBtn: UIBarButtonItem!
     
     var projectCD: String = ""
     var wsbCD: String = ""
@@ -39,6 +40,16 @@ class AddDailyViewController: ExSubViewController {
         
         CustomUI()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.tabBarController?.tabBar.isHidden = false
+
+    }
     
     func CustomUI() {
         // init hourArray data
@@ -51,6 +62,9 @@ class AddDailyViewController: ExSubViewController {
         }
         
         getProjectRequest()
+        
+        self.title = "日報追加"
+
     }
     
     func getProjectRequest() {
@@ -276,4 +290,5 @@ class AddDailyViewController: ExSubViewController {
                        cancelHandler: nil)
         
     }
+
 }

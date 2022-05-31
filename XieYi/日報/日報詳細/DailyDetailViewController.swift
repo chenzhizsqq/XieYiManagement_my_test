@@ -258,9 +258,7 @@ class DailyDetailViewController: ExSubViewController, UITableViewDelegate, UITab
         let storyboard = self.storyboard!
         let nextView = storyboard.instantiateViewController(withIdentifier: "AddDailyViewController") as! AddDailyViewController
         nextView.ymd = date
-        self.navigationController?.present(nextView, animated: true, completion: {
-            
-        })
+        self.navigationController?.pushViewController(nextView, animated: true)
     }
     
     // 日報追加画面から戻る通知

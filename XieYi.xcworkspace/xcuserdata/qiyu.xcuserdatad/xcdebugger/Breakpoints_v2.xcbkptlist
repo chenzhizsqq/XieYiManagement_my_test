@@ -216,7 +216,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "3783673A-A6D8-4944-9578-CE024B01141B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XieYi/&#x30de;&#x30a4;/&#x4f1a;&#x793e;&#x4ea4;&#x63db;/ChangeCompanyViewController.swift"
@@ -232,7 +232,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C30DF998-118A-47F9-9090-9236CD457734"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XieYi/&#x30de;&#x30a4;/&#x4f1a;&#x793e;&#x4ea4;&#x63db;/ChangeCompanyViewController.swift"
@@ -248,7 +248,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "7A361CFD-8BB3-4BE2-B2AD-C37ABBFC973A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XieYi/&#x30de;&#x30a4;/&#x4f1a;&#x793e;&#x4ea4;&#x63db;/ChangeCompanyViewController.swift"
@@ -280,7 +280,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "ACA44BE7-427D-4EC4-8E1F-DF2AF865859A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XieYi/&#x30de;&#x30a4;/&#x30ed;&#x30b1;&#x30fc;&#x30b7;&#x30e7;&#x30f3;&#x30de;&#x30cd;&#x30fc;&#x30b7;&#x3099;&#x30e3;/LocationViewController.swift"
@@ -520,7 +520,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "79C6808E-99C6-4F39-972B-FC3DF7F00B62"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XieYi/&#x30de;&#x30a4;/&#x30ed;&#x30b1;&#x30fc;&#x30b7;&#x30e7;&#x30f3;&#x30de;&#x30cd;&#x30fc;&#x30b7;&#x3099;&#x30e3;/LocationViewController.swift"
@@ -536,7 +536,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0334AD8F-F760-480E-A773-0A235448D0BA"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XieYi/&#x65e5;&#x5831;/DailyViewController.swift"
@@ -552,7 +552,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "C082E306-1A21-41E2-A44F-A3B917C6A37B"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "XieYi/&#x65e5;&#x5831;/DailyViewController.swift"
@@ -561,6 +561,22 @@
             startingLineNumber = "38"
             endingLineNumber = "38"
             landmarkName = "viewWillAppear(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8CBFEDFC-A75F-46F1-A007-B450BD418A85"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XieYi/&#x30de;&#x30a4;/&#x30ed;&#x30b1;&#x30fc;&#x30b7;&#x30e7;&#x30f3;&#x30de;&#x30cd;&#x30fc;&#x30b7;&#x3099;&#x30e3;/LocationViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "getLocationInfo()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
