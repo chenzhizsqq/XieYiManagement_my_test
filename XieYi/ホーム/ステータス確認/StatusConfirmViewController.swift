@@ -22,6 +22,7 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
     @IBOutlet weak var areaTextField: UITextField!
     @IBOutlet weak var updateBtn: UIButton!
     @IBOutlet weak var registerAreaBtn: UIButton!
+    @IBOutlet weak var Picker: UIDatePicker!
     
     // 緯度
     var latitudeN: String = "0"
@@ -117,6 +118,8 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         confirmStatusRequest()
         
         uploadAreaRequest()
+        
+        print("!!! Picker :\(Picker.date)")
     }
     
     @IBAction func cancelBtnClick(_ sender: UIButton) {
