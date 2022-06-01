@@ -13,16 +13,17 @@ import SwiftyJSON
 
 class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegate, UITextFieldDelegate {
     
-    @IBOutlet weak var latLabel: UILabel!
-    @IBOutlet weak var lonLabel: UILabel!
-    @IBOutlet weak var locationLabel: UILabel!
+//    @IBOutlet weak var latLabel: UILabel!
+//    @IBOutlet weak var lonLabel: UILabel!
+//    @IBOutlet weak var locationLabel: UILabel!
     @IBOutlet weak var checkInBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var noteTextField: UITextField!
     @IBOutlet weak var areaTextField: UITextField!
     @IBOutlet weak var updateBtn: UIButton!
-    @IBOutlet weak var registerAreaBtn: UIButton!
+    //@IBOutlet weak var registerAreaBtn: UIButton!
     @IBOutlet weak var Picker: UIDatePicker!
+    @IBOutlet weak var tabelView: UITableView!
     
     // 緯度
     var latitudeN: String = "0"
@@ -54,14 +55,15 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         checkInBtn.layer.cornerRadius = 188 / 2.0
         cancelBtn.layer.cornerRadius = 18.0
         updateBtn.layer.cornerRadius = 18.0
-        registerAreaBtn.layer.cornerRadius = 18.0
+        //registerAreaBtn.layer.cornerRadius = 18.0
         noteTextField.delegate = self
         areaTextField.delegate = self
         
-        latLabel.text = String(String(format: "%.6f", latitudeN))
-        lonLabel.text = String(String(format: "%.6f", longitudeN))
+//        latLabel.text = String(String(format: "%.6f", latitudeN))
+//        lonLabel.text = String(String(format: "%.6f", longitudeN))
         currentArea = isInArea(lat: Double(String(format: "%.6f", latitudeN)) ?? 0.0, lon: Double(String(format: "%.6f", longitudeN)) ?? 0.0)
-        locationLabel.text = currentArea
+//        locationLabel.text = currentArea
+        self.tabelView!.setEditing(true, animated:true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -297,10 +299,10 @@ extension StatusConfirmViewController {
         latitudeN = String(latitude!)
         longitudeN = String(longitude!)
         
-        latLabel.text = String(String(format: "%.6f", latitude!))
-        lonLabel.text = String(String(format: "%.6f", longitude!))
+//        latLabel.text = String(String(format: "%.6f", latitude!))
+//        lonLabel.text = String(String(format: "%.6f", longitude!))
         currentArea = isInArea(lat: Double(String(format: "%.6f", latitude!)) ?? 0.0, lon: Double(String(format: "%.6f", longitude!)) ?? 0.0)
-        locationLabel.text = currentArea
+//        locationLabel.text = currentArea
     }
     
     /// 位置情報の許可のステータス変更で呼ばれる
