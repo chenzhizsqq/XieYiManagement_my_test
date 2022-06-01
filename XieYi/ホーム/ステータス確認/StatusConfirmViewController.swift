@@ -115,6 +115,8 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         noteTextField.resignFirstResponder()
         areaTextField.resignFirstResponder()
         confirmStatusRequest()
+        
+        uploadAreaRequest()
     }
     
     @IBAction func cancelBtnClick(_ sender: UIButton) {
