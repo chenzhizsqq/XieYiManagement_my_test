@@ -146,7 +146,7 @@
             </objects>
             <point key="canvasLocation" x="940" y="490"/>
         </scene>
-        <!--ホーム-->
+        <!--EtOffice-->
         <scene sceneID="lum-vm-HvJ">
             <objects>
                 <viewController id="mPH-2L-sSC" customClass="HomeViewController" customModule="XieYi" customModuleProvider="target" sceneMemberID="viewController">
@@ -194,7 +194,7 @@
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="fTG-MZ-GVX"/>
-                    <navigationItem key="navigationItem" title="ホーム" id="MLm-A1-lnP"/>
+                    <navigationItem key="navigationItem" title="EtOffice" id="MLm-A1-lnP"/>
                     <connections>
                         <outlet property="collection" destination="piU-bI-XPg" id="F9t-Id-Jj1"/>
                     </connections>

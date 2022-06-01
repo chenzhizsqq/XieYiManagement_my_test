@@ -24,7 +24,7 @@
 
 //MARK: - MESSAGE
 "ERROR" = "エラー";
-"MESSAGE" = "メッセージ";
+"MESSAGE" = "新着メッセージ";
 "OK" = "ＯＫ";
 "CONFIRM" = "確認";
 "CANCEL" = "キャンセル";

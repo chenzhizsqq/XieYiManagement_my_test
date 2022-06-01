@@ -39,7 +39,7 @@
 "KXu-S8-d17.text" = "LatLabel";
 
 /* Class = "UINavigationItem"; title = "ホーム"; ObjectID = "MLm-A1-lnP"; */
-"MLm-A1-lnP.title" = "ホーム";
+"MLm-A1-lnP.title" = "EtOffice";
 
 /* Class = "UILabel"; text = "プロジェクト名"; ObjectID = "Ml8-KM-uuI"; */
 "Ml8-KM-uuI.text" = "プロジェクト名";

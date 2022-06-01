@@ -19,8 +19,12 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     var currentDate = ""
     var currentStatus = ""
     
-    var section1TextArray = ["勤務中", "勤務外", "休憩中", "移動中", "会議中"]
+    //var section1TextArray = ["勤務中", "勤務外", "休憩中", "移動中", "会議中"]
+    var section1TextArray = ["勤務開始", "休憩開始", "会議開始", "移動開始", "勤務終了"]
     var section1ImageArray = ["person.fill.checkmark", "person.fill.xmark", "airplane", "car", "text.bubble"]
+    
+    ///选中了哪个页
+    var selectOptionMain = 0
     
     //    var section2TextArray = ["当日出勤", "组织架构", "我的审批"]
     //    var section2ImageArray = ["bag", "aspectratio", "tray.2"]
@@ -61,6 +65,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(getMessageRequest), name: NSNotification.Name(rawValue: "UserSetStatus"), object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(getSelectOption(notification:)), name: .selectOptionName, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,9 +157,11 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if indexPath.section == 0 {
             header.textLabel.text = "株式会社写易"
         } else if indexPath.section == 1 {
-            header.textLabel.text = "共通機能"
+            //header.textLabel.text = "共通機能"
+            header.textLabel.text = "勤務状態変更登録"
         } else if indexPath.section == 2 {
-            header.textLabel.text = "出勤記録"
+            //header.textLabel.text = "出勤記録"
+            header.textLabel.text = "勤務状態変更履歴"
         } else if indexPath.section == 3 {
             header.textLabel.text = NSLocalizedString("MESSAGE", comment: "Message")
         } else {
@@ -202,6 +210,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 1
+                nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
 //                self.navigationController?.present(nextView, animated: true, completion: {
@@ -211,6 +220,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 2
+                nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
 //                self.navigationController?.present(nextView, animated: true, completion: {
@@ -220,6 +230,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 3
+                nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
 //                self.navigationController?.present(nextView, animated: true, completion: {
@@ -229,6 +240,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 4
+                nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
 //                self.navigationController?.present(nextView, animated: true, completion: {
@@ -238,6 +250,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 5
+                nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
 //                self.navigationController?.present(nextView, animated: true, completion: {
@@ -270,6 +283,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             
             cell.dateLabel.text = now
             cell.statusLabel.text = currentStatus
+            cell.nameLabel.text = getUserNameFunc()
             
             tempCell = cell
             
@@ -278,6 +292,54 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             cell.layer.cornerRadius = 10
             cell.layer.masksToBounds = true
             cell.textLabel.text = section1TextArray[indexPath.row]
+            
+            if(recordArray.count > 0 ){
+                //["勤務中"  , "勤務外" , "休憩中"  , "移動中" , "会議中"]
+                //["勤務開始", "休憩開始", "会議開始", "移動開始", "勤務終了"]
+                let statusvalue = getStatusvalue()
+                print("!!! statusvalue:\(String(statusvalue))  indexPath：\(String(indexPath.row))   selectOptionMain:\(String(selectOptionMain))")
+                
+                cell.isUserInteractionEnabled = true
+                switch(selectOptionMain){
+                case 1:
+                    if(indexPath.row == 0 ){
+                        cell.isUserInteractionEnabled = false
+                    }
+                    break
+                case 2:
+                    if(   indexPath.row == 0
+                       || indexPath.row == 2
+                       || indexPath.row == 3
+                       || indexPath.row == 4){
+                        cell.isUserInteractionEnabled = false
+                    }
+                    break
+                case 3:
+                    if(   indexPath.row == 0
+                       || indexPath.row == 1
+                       || indexPath.row == 3
+                       || indexPath.row == 4){
+                        cell.isUserInteractionEnabled = false
+                    }
+                    break
+                case 4:
+                    if(   indexPath.row == 0
+                       || indexPath.row == 1
+                       || indexPath.row == 2
+                       || indexPath.row == 4){
+                        cell.isUserInteractionEnabled = false
+                    }
+                    break
+                case 5:
+                    if(indexPath.row != 0 ){
+                        cell.isUserInteractionEnabled = false
+                    }
+                    break
+                default:
+                    debugPrint("statusvalue default")
+                    break
+                }
+            }
             cell.image.image = UIImage.init(systemName: section1ImageArray[indexPath.row])
             tempCell = cell
             
@@ -361,6 +423,21 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         return tempCell
     }
+    
+    // MARK: - 获取当前状态
+    func getStatusvalue() -> String {
+        if(recordArray.count > 0 ){
+            return recordArray[0]["statusvalue"] as? String ?? ""
+        }
+        return "0"
+    }
+    
+    
+    // MARK: - 获取选中的选项
+    @objc func getSelectOption(notification: NSNotification?) {
+        selectOptionMain = notification?.userInfo?["selectOption"] as? Int ?? 0
+        print("!!! selectOptionMain getSelectOption(): \(selectOptionMain)")
+    }
 }
 
 // MARK: - Collection Extension
@@ -416,4 +493,9 @@ class DateUtils {
         formatter.dateFormat = format
         return formatter.string(from: date)
     }
+}
+
+// MARK: - 选择项目的Key
+extension Notification.Name {
+   static let selectOptionName = Notification.Name("selectOptionName")
 }

@@ -33,7 +33,7 @@ func getDistance(lat1:Double,lng1:Double,lat2:Double,lng2:Double) -> Double {
     
     var s:Double = 2 * asin(sqrt(pow(sin(a/2), 2) + cos(radLat1) * cos(radLat2) * pow(sin(b/2), 2)))
     s = Double(String(format: "%.2f", s * EARTH_RADIUS))!
-    print("😈Distance = " + String(s))
+    //print("😈Distance = " + String(s))
     return s
 }
 

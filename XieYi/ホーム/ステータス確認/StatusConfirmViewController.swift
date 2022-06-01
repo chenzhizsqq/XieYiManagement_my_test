@@ -38,6 +38,9 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
     var memo: String = ""
     var area: String = ""
     
+    ///选中了哪个页
+    var selectOption = 0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -72,17 +75,38 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         self.tabBarController?.tabBar.isHidden = false
     }
     
+    //["勤務開始", "休憩開始", "勤務終了", "移動開始", "会議開始"]
     func codeToString(code: Int) -> String {
         if code == 1 {
-            return "勤務中"
+            //return "勤務中"
+            return "勤務開始"
         } else if code == 2 {
-            return "勤務外"
+            //return "勤務外"
+            //"休憩開始" "休憩終了"
+            if(selectOption != 2){
+                return "休憩開始"
+            }else{
+                return "休憩終了"
+            }
         } else if code == 3 {
-            return "休憩中"
+            //return "休憩中"
+            //会議開始 会議終了
+            if(selectOption != 3){
+                return "会議開始"
+            }else{
+                return "会議終了"
+            }
         } else if code == 4 {
-            return "移動中"
+            //return "移動中"
+            //"移動開始" "移動終了"
+            if(selectOption != 4){
+                return "移動開始"
+            }else{
+                return "移動終了"
+            }
         } else if code == 5 {
-            return "会議中"
+            //return "会議中"
+            return "勤務終了"
         }
         return ""
     }
@@ -175,6 +199,14 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
                     if (jsonData["status"].intValue == 0) {
                         self.navigationController?.popViewController(animated: true)
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserSetStatus"), object: nil)
+                        
+                        if(self.selectOption == self.code){
+                            self.selectOption = 0
+                        }else{
+                            self.selectOption = self.code
+                        }
+                        NotificationCenter.default.post(name: .selectOptionName, object: nil, userInfo: ["selectOption": self.selectOption ])
+
                         NotificationCenter.default.removeObserver(self)
                     } else {
                         Util.showMessageAlert(currentVC: self, msg: jsonData["message"].object as! String)

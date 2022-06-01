@@ -13,4 +13,6 @@ class HomeCollectionCell0: UICollectionViewCell {
     
     @IBOutlet weak var statusLabel: UILabel!
     
+    @IBOutlet weak var nameLabel: UILabel!
+    
 }
