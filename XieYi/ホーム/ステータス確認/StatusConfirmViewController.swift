@@ -23,7 +23,6 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
     @IBOutlet weak var updateBtn: UIButton!
     //@IBOutlet weak var registerAreaBtn: UIButton!
     @IBOutlet weak var Picker: UIDatePicker!
-    @IBOutlet weak var tabelView: UITableView!
     
     // 緯度
     var latitudeN: String = "0"
@@ -63,7 +62,6 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
 //        lonLabel.text = String(String(format: "%.6f", longitudeN))
         currentArea = isInArea(lat: Double(String(format: "%.6f", latitudeN)) ?? 0.0, lon: Double(String(format: "%.6f", longitudeN)) ?? 0.0)
 //        locationLabel.text = currentArea
-        self.tabelView!.setEditing(true, animated:true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
