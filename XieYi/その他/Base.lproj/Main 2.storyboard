@@ -245,8 +245,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright @ 2022 Xieyi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0t-RP-ths">
-                                <rect key="frame" x="121.00000000000001" y="746" width="133.33333333333337" height="12"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright @ 2021 Xieyi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0t-RP-ths">
+                                <rect key="frame" x="121.66666666666667" y="746" width="131.66666666666663" height="12"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="12" id="wqN-JR-Hxl"/>
                                 </constraints>
@@ -534,11 +534,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Th8-CG-0bv">
-                                <rect key="frame" x="87.666666666666686" y="672.66666666666663" width="200" height="42"/>
+                                <rect key="frame" x="87.666666666666686" y="850" width="200" height="36"/>
                                 <color key="backgroundColor" systemColor="systemIndigoColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="2ab-eQ-sDa"/>
-                                    <constraint firstAttribute="height" constant="42" id="T6F-3q-32g"/>
+                                    <constraint firstAttribute="height" constant="36" id="T6F-3q-32g"/>
                                 </constraints>
                                 <state key="normal" title="勤務状態更新登録">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -548,7 +548,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="top" axis="vertical" distribution="equalSpacing" alignment="top" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="1cI-5C-NV1">
-                                <rect key="frame" x="62.666666666666657" y="294" width="249.99999999999997" height="349.66666666666674"/>
+                                <rect key="frame" x="62.666666666666657" y="294" width="249.99999999999997" height="524"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="時間調整" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KD6-De-tQe">
                                         <rect key="frame" x="0.0" y="0.0" width="69.333333333333329" height="40"/>
@@ -574,7 +574,7 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleAspectFill" verticalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="昼休憩、顧客対応等" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WHD-zN-51t">
+                                    <textField opaque="NO" contentMode="scaleAspectFill" verticalCompressionResistancePriority="748" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="備考" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="WHD-zN-51t">
                                         <rect key="frame" x="0.0" y="124" width="250" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="6l2-BZ-9zh"/>
@@ -600,43 +600,36 @@
                                         <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9gd-cF-LG3">
-                                        <rect key="frame" x="0.0" y="246" width="206" height="40"/>
+                                        <rect key="frame" x="0.0" y="246" width="204" height="32"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59p-LV-DDa" customClass="CheckBox" customModule="XieYi" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHE-uo-iHb" customClass="CheckBox" customModule="XieYi" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="48" height="32"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <directionalEdgeInsets key="contentInsets" top="0.0" leading="0.0" bottom="0.0" trailing="0.0"/>
-                                                </buttonConfiguration>
+                                                <buttonConfiguration key="configuration" style="plain" image="check_off"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="この場所を登録する" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ToC-jm-RaO">
-                                                <rect key="frame" x="50" y="0.0" width="156" height="40"/>
+                                                <rect key="frame" x="48" y="0.0" width="156" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="40" id="bsT-Ry-fLw"/>
+                                            <constraint firstItem="dHE-uo-iHb" firstAttribute="centerY" secondItem="9gd-cF-LG3" secondAttribute="centerY" id="8wr-0L-k4x"/>
+                                            <constraint firstItem="dHE-uo-iHb" firstAttribute="leading" secondItem="9gd-cF-LG3" secondAttribute="leading" id="FIX-5U-B1I"/>
+                                            <constraint firstAttribute="height" constant="32" id="bsT-Ry-fLw"/>
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="（位置情報をONにすることで、良く使う勤務場所を登録して次から自動入力できます。）" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqr-Tt-ce8">
-                                        <rect key="frame" x="0.0" y="288" width="245.33333333333334" height="28.666666666666686"/>
+                                        <rect key="frame" x="0.0" y="280" width="245.33333333333334" height="244"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHS-MX-o8v">
-                                        <rect key="frame" x="0.0" y="318.66666666666663" width="181.33333333333334" height="31"/>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="位置情報有効設定画面へ"/>
-                                        <connections>
-                                            <action selector="gotoSettingBtnClick:" destination="kcS-5Q-5kg" eventType="touchUpInside" id="k77-sc-5Ae"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="R73-JD-go3" firstAttribute="leading" secondItem="1cI-5C-NV1" secondAttribute="leading" id="1bz-QN-Mzy"/>
+                                    <constraint firstItem="9gd-cF-LG3" firstAttribute="centerY" secondItem="1cI-5C-NV1" secondAttribute="centerY" id="1cH-AH-MWy"/>
                                     <constraint firstItem="Qzt-Wd-jYu" firstAttribute="leading" secondItem="1cI-5C-NV1" secondAttribute="leading" id="58W-Q4-v8B"/>
                                     <constraint firstItem="tnj-Yc-y7b" firstAttribute="top" secondItem="R73-JD-go3" secondAttribute="bottom" constant="2" id="Fot-eb-gi9"/>
                                     <constraint firstAttribute="trailing" secondItem="WHD-zN-51t" secondAttribute="trailing" id="FuS-Dh-mQZ"/>
@@ -665,12 +658,8 @@
                         <outlet property="Picker" destination="R73-JD-go3" id="3MI-Qw-EU8"/>
                         <outlet property="areaTextField" destination="Qzt-Wd-jYu" id="6Kg-5u-EO3"/>
                         <outlet property="cancelBtn" destination="UqM-aB-QoY" id="DnS-LW-uLp"/>
-                        <outlet property="checkBoxBtn" destination="59p-LV-DDa" id="z3N-ZJ-iKb"/>
-                        <outlet property="checkBoxLabel" destination="ToC-jm-RaO" id="WMT-MQ-bZz"/>
                         <outlet property="checkInBtn" destination="rKF-qc-14Q" id="hzo-J0-OCM"/>
-                        <outlet property="gpsLabel" destination="pqr-Tt-ce8" id="SoE-bf-Yxy"/>
                         <outlet property="noteTextField" destination="WHD-zN-51t" id="m3X-nE-eu6"/>
-                        <outlet property="toSetGpsBtn" destination="rHS-MX-o8v" id="GnN-i6-QNJ"/>
                         <outlet property="updateBtn" destination="Th8-CG-0bv" id="Gta-Sf-dij"/>
                     </connections>
                 </viewController>
@@ -696,6 +685,12 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="insetGrouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="di4-Mm-gh2">
                                 <rect key="frame" x="0.0" y="56" width="375" height="673"/>
+                                <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="GJx-dV-SZL">
+                                    <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                </button>
                             </tableView>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="出勤記録" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ncn-oj-W7u">
                                 <rect key="frame" x="154.66666666666666" y="44" width="66" height="16"/>
@@ -1342,6 +1337,7 @@
     </scenes>
     <resources>
         <image name="AppLogo" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="check_off" width="24" height="24"/>
         <image name="doc.badge.plus" catalog="system" width="119" height="128"/>
         <image name="edit" width="25" height="25"/>
         <image name="home" width="25" height="25"/>

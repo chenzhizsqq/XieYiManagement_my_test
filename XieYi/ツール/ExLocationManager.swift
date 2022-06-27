@@ -38,7 +38,7 @@ func getDistance(lat1:Double,lng1:Double,lat2:Double,lng2:Double) -> Double {
 }
 
 //MARK: - 判断是否在本地存储地址范围内
-func isInArea(lat:Double,lon:Double) -> String {
+func isInArea(lat:Double,lon:Double) -> String? {
     let DISTANCE = 20.0
     
     if UserDefaults.standard.object(forKey: "LOCATIONLIST") != nil {
@@ -50,14 +50,16 @@ func isInArea(lat:Double,lon:Double) -> String {
                 let tempLon = Double(item["longitude"]!) ?? 0.0
                 let dis = getDistance(lat1: lat, lng1: lon, lat2: tempLat, lng2: tempLon)
                 if dis <= DISTANCE {
-                    return item["location"] ?? ""
+                    if (item["location"] ?? "").count > 0 {
+                        return item["location"]!
+                    }
                 }
             }
         } else {
-            return "未登録場所"
+            return nil
         }
     } else {
-        return "未登録作業場所"
+        return nil
     }
-    return "未登録場所"
+    return nil
 }

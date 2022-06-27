@@ -7,22 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "F6CD862F-3D83-4E25-A68F-5E441824DAC9"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "registerAreaBtnClick(_:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "C13E3357-CB28-4027-A60B-0DFE32A84BBE"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -30,8 +14,8 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "238"
+            endingLineNumber = "238"
             landmarkName = "confirmStatusRequest()"
             landmarkType = "7">
          </BreakpointContent>
@@ -46,8 +30,8 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "confirmStatusRequest()"
             landmarkType = "7">
          </BreakpointContent>
@@ -302,8 +286,8 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "206"
-            endingLineNumber = "206"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -318,8 +302,8 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/HomeViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "251"
-            endingLineNumber = "251"
+            startingLineNumber = "310"
+            endingLineNumber = "310"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -430,9 +414,9 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "213"
-            endingLineNumber = "213"
-            landmarkName = "uploadAreaRequest()"
+            startingLineNumber = "267"
+            endingLineNumber = "267"
+            landmarkName = "confirmStatusRequest()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -446,9 +430,9 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "139"
-            endingLineNumber = "139"
-            landmarkName = "confirmStatusRequest()"
+            startingLineNumber = "143"
+            endingLineNumber = "143"
+            landmarkName = "registerAreaBtnClick(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -462,8 +446,8 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "CustomUI()"
             landmarkType = "7">
          </BreakpointContent>
@@ -494,10 +478,10 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "175"
-            endingLineNumber = "175"
-            landmarkName = "confirmStatusRequest()"
-            landmarkType = "7">
+            startingLineNumber = "191"
+            endingLineNumber = "191"
+            landmarkName = "Parameter"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -510,10 +494,10 @@
             filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
-            landmarkName = "confirmStatusRequest()"
-            landmarkType = "7">
+            startingLineNumber = "197"
+            endingLineNumber = "197"
+            landmarkName = "Parameter"
+            landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -578,6 +562,102 @@
             endingLineNumber = "159"
             landmarkName = "getLocationInfo()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32B44001-2D8E-44B7-9192-563509AD555C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "365"
+            endingLineNumber = "365"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F535D5B1-035B-4973-AB02-EAF745230BA9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/HomeViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
+            landmarkName = "getMessageRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "04BD3457-DAE5-4C0E-8663-EF84844451CD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XieYi/&#x30db;&#x30fc;&#x30e0;/&#x30b9;&#x30c6;&#x30fc;&#x30bf;&#x30b9;&#x78ba;&#x8a8d;/StatusConfirmViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "237"
+            endingLineNumber = "237"
+            landmarkName = "confirmStatusRequest()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "40FCC5DC-0642-46B8-B005-25ADB084DBFC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XieYi/&#x30c4;&#x30fc;&#x30eb;/CheckBox.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "isChecked"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "208991CD-4288-4D34-857F-69F724D759E1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XieYi/&#x30c4;&#x30fc;&#x30eb;/CheckBox.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "isChecked"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1BC1B14-B164-4D93-BC35-CA2D506F8030"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "XieYi/&#x30c4;&#x30fc;&#x30eb;/ExLocationManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "isInArea(lat:lon:)"
+            landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -85,6 +85,7 @@
 		7B43EF9726FECF95008D28E5 /* MemberSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B43EF9526FECF94008D28E5 /* MemberSectionHeader.swift */; };
 		7B43EF9826FECF95008D28E5 /* MemberSectionHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B43EF9626FECF95008D28E5 /* MemberSectionHeader.xib */; };
 		7B43EF9A2703F073008D28E5 /* StatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B43EF992703F073008D28E5 /* StatusType.swift */; };
+		7B6EE8C7284C7C9000A0843D /* CheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B6EE8C6284C7C9000A0843D /* CheckBox.swift */; };
 		7BA732A9271FFF6900BCA83A /* StatusTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BA732A7271FFF6800BCA83A /* StatusTableViewCell.swift */; };
 		7BA732AA271FFF6900BCA83A /* StatusTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7BA732A8271FFF6800BCA83A /* StatusTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -180,6 +181,7 @@
 		7B43EF9526FECF94008D28E5 /* MemberSectionHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemberSectionHeader.swift; sourceTree = "<group>"; };
 		7B43EF9626FECF95008D28E5 /* MemberSectionHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MemberSectionHeader.xib; sourceTree = "<group>"; };
 		7B43EF992703F073008D28E5 /* StatusType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusType.swift; sourceTree = "<group>"; };
+		7B6EE8C6284C7C9000A0843D /* CheckBox.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckBox.swift; sourceTree = "<group>"; };
 		7BA732A7271FFF6800BCA83A /* StatusTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatusTableViewCell.swift; sourceTree = "<group>"; };
 		7BA732A8271FFF6800BCA83A /* StatusTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StatusTableViewCell.xib; sourceTree = "<group>"; };
 		AEFD31D28825CFD9D63D48AA /* Pods-XieYi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XieYi.release.xcconfig"; path = "Target Support Files/Pods-XieYi/Pods-XieYi.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 		3249A1812559424E0006E006 /* ツール */ = {
 			isa = PBXGroup;
 			children = (
+				7B6EE8C6284C7C9000A0843D /* CheckBox.swift */,
 				3249A17E255517360006E006 /* CustomProperty.plist */,
 				3249A17A2555158C0006E006 /* Define.swift */,
 				3249A1822559427B0006E006 /* ExLocationManager.swift */,
@@ -713,6 +716,7 @@
 				7B43EF9726FECF95008D28E5 /* MemberSectionHeader.swift in Sources */,
 				324CE1622553BA68008A74A9 /* MemberViewController.swift in Sources */,
 				324830B4253D7E7F00ED3377 /* HomeCollectionCell1.swift in Sources */,
+				7B6EE8C7284C7C9000A0843D /* CheckBox.swift in Sources */,
 				327B9EC225B039AE001E9725 /* DailyDetailViewController.swift in Sources */,
 				324830C0253E6EC800ED3377 /* HomeCollectionCell3.swift in Sources */,
 				3249A1832559427B0006E006 /* ExLocationManager.swift in Sources */,

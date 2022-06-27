@@ -23,6 +23,10 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
     @IBOutlet weak var updateBtn: UIButton!
     //@IBOutlet weak var registerAreaBtn: UIButton!
     @IBOutlet weak var Picker: UIDatePicker!
+    @IBOutlet weak var checkBoxBtn: CheckBox!
+    @IBOutlet weak var checkBoxLabel: UILabel!
+    @IBOutlet weak var gpsLabel: UILabel!
+    @IBOutlet weak var toSetGpsBtn: UIButton!
     
     // 緯度
     var latitudeN: String = "0"
@@ -34,13 +38,15 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
     var alias: String = ""
     var locationArray = Array<Dictionary<String, Any>>()
     
+    // 位置情報設定有効、無効フラグ
+    var gpsEnable = false
+    
+    var currentStatusValue: String = ""
+    var currentStatusText: String = ""
     var code: Int = 0
-    var currentArea: String = ""
+    var currentArea: String?
     var memo: String = ""
     var area: String = ""
-    
-    ///选中了哪个页
-    var selectOption = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,17 +63,28 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         //registerAreaBtn.layer.cornerRadius = 18.0
         noteTextField.delegate = self
         areaTextField.delegate = self
+        //noteTextField.placeholder = "aaa"
         
 //        latLabel.text = String(String(format: "%.6f", latitudeN))
 //        lonLabel.text = String(String(format: "%.6f", longitudeN))
         currentArea = isInArea(lat: Double(String(format: "%.6f", latitudeN)) ?? 0.0, lon: Double(String(format: "%.6f", longitudeN)) ?? 0.0)
 //        locationLabel.text = currentArea
+        
+        checkBoxBtn.isEnabled = false
+        gpsLabel.isHidden = true
+        // デフォルト日付
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let currentDate = Date()
+        let modifiedDate = Calendar.current.date(byAdding: .minute, value: 14, to: currentDate)!
+        Picker.date = modifiedDate
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         print(code)
-        checkInBtn.setTitle(codeToString(code: code), for: .normal)
+        //checkInBtn.setTitle(codeToString(code: code), for: .normal)
+        checkInBtn.setTitle(currentStatusText, for: .normal)
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -76,50 +93,35 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         self.tabBarController?.tabBar.isHidden = false
     }
     
-    //["勤務開始", "休憩開始", "勤務終了", "移動開始", "会議開始"]
-    func codeToString(code: Int) -> String {
-        if code == 1 {
-            //return "勤務中"
-            return "勤務開始"
-        } else if code == 2 {
-            //return "勤務外"
-            //"休憩開始" "休憩終了"
-            if(selectOption != 2){
-                return "休憩開始"
-            }else{
-                return "休憩終了"
-            }
-        } else if code == 3 {
-            //return "休憩中"
-            //会議開始 会議終了
-            if(selectOption != 3){
-                return "会議開始"
-            }else{
-                return "会議終了"
-            }
-        } else if code == 4 {
-            //return "移動中"
-            //"移動開始" "移動終了"
-            if(selectOption != 4){
-                return "移動開始"
-            }else{
-                return "移動終了"
-            }
-        } else if code == 5 {
-            //return "会議中"
-            return "勤務終了"
+    func refreshGpsIndicator() {
+        if gpsEnable {
+            gpsLabel.isHidden = false
+            gpsLabel.text = NSLocalizedString("ADD_ON", comment: "")
+            toSetGpsBtn.isHidden = true
+        } else {
+            gpsLabel.isHidden = false
+            checkBoxLabel.isHidden = true
+            checkBoxBtn.isHidden = true
+            gpsLabel.text = NSLocalizedString("ADD_OFF", comment: "")
+            toSetGpsBtn.isHidden = false
         }
-        return ""
     }
     
     @IBAction func checkInBtnClick(_ sender: UIButton) {
         noteTextField.resignFirstResponder()
         areaTextField.resignFirstResponder()
+        
         confirmStatusRequest()
         
-        uploadAreaRequest()
+        if !checkBoxBtn.isHidden && checkBoxBtn.isChecked {
+            uploadAreaRequest()
+        }
         
         print("!!! Picker :\(Picker.date)")
+    }
+    
+    @IBAction func gotoSettingBtnClick(_ sender: UIButton) {
+        try? UIApplication.shared.open(UIApplication.openSettingsURLString.asURL())
     }
     
     @IBAction func cancelBtnClick(_ sender: UIButton) {
@@ -127,7 +129,6 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
             
         }
     }
-    
     
     @IBAction func registerAreaBtnClick(_ sender: UIButton) {
         noteTextField.resignFirstResponder()
@@ -163,6 +164,18 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
         return true
     }
     
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == areaTextField {
+            if textField.text?.count ?? 0 > 0 {
+                checkBoxBtn.isEnabled = true
+                gpsLabel.isHidden = false
+            } else {
+                checkBoxBtn.isEnabled = false
+                gpsLabel.isHidden = true
+            }
+        }
+    }
+    
     // MARK: - 确认状态请求
     func confirmStatusRequest() {
         if getTokenFunc().count != 0 {
@@ -174,11 +187,54 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
                 let device: String
                 let statusvalue: String
                 let statustext: String
+                let statustime: String
                 let longitude: String
                 let latitude: String
                 let location: String
                 let memo: String
             }
+            
+            var updateStatusValue = ""
+            switch code {
+            case 1:
+                // 勤務開始
+                updateStatusValue = "1"
+            case 2:
+                // 休憩開始の場合、休憩終了に更新
+                if currentStatusValue == "3" {
+                    updateStatusValue = "4"
+                }
+                // 休憩開始に更新
+                else {
+                    updateStatusValue = "3"
+                }
+            case 3:
+                // 会議開始の場合、会議終了に更新
+                if currentStatusValue == "5" {
+                    updateStatusValue = "6"
+                }
+                // 会議開始に更新
+                else {
+                    updateStatusValue = "5"
+                }
+            case 4:
+                // 移動開始の場合、移動終了に更新
+                if currentStatusValue == "7" {
+                    updateStatusValue = "8"
+                }
+                // 移動開始に更新
+                else {
+                    updateStatusValue = "7"
+                }
+            case 5:
+                // 勤務終了
+                updateStatusValue = "2"
+            default:
+                updateStatusValue = ""
+            }
+            
+            let date = Picker.date
+            let statustime = DateUtils.stringFromDate(date: date, format: "yyyyMMddHHmm")
             
             let para = Parameter(
                 app: "EtOfficeSetUserStatus",
@@ -186,11 +242,12 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
                 tenant: getTenantidFunc(),
                 hpid: getHpidFunc(),
                 device: "iOS",
-                statusvalue: String(code),
-                statustext: codeToString(code: code),
+                statusvalue: updateStatusValue,
+                statustext: "",
+                statustime: statustime,
                 longitude: String(format: "%.6f", Float(longitudeN)!),
                 latitude: String(format: "%.6f", Float(latitudeN)!),
-                location: currentArea,
+                location: currentArea ?? "",
                 memo: memo
             )
             
@@ -205,14 +262,6 @@ class StatusConfirmViewController: ExSubViewController, CLLocationManagerDelegat
                         self.navigationController?.popViewController(animated: true)
                         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "UserSetStatus"), object: nil)
                         
-                        if(self.selectOption == self.code){
-                            self.selectOption = 0
-                        }else{
-                            self.selectOption = self.code
-                        }
-                        NotificationCenter.default.post(name: .selectOptionName, object: nil, userInfo: ["selectOption": self.selectOption ])
-
-                        NotificationCenter.default.removeObserver(self)
                     } else {
                         Util.showMessageAlert(currentVC: self, msg: jsonData["message"].object as! String)
                         print(jsonData["message"].object as! String)
@@ -301,31 +350,50 @@ extension StatusConfirmViewController {
 //        lonLabel.text = String(String(format: "%.6f", longitude!))
         currentArea = isInArea(lat: Double(String(format: "%.6f", latitude!)) ?? 0.0, lon: Double(String(format: "%.6f", longitude!)) ?? 0.0)
 //        locationLabel.text = currentArea
+        
+        if currentArea != nil {
+            areaTextField.text = currentArea!
+            areaTextField.isEnabled = false
+            checkBoxBtn.isHidden = true
+            checkBoxLabel.isHidden = true
+            gpsLabel.isHidden = false
+            gpsLabel.text = NSLocalizedString("ADD_REGISTERED", comment: "")
+            toSetGpsBtn.isHidden = true
+        } else {
+            areaTextField.isEnabled = true
+            checkBoxBtn.isHidden = false
+            checkBoxLabel.isHidden = false
+        }
     }
     
     /// 位置情報の許可のステータス変更で呼ばれる
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         print("didChangeAuthorization status=\(status)")
+        gpsEnable = false
         switch status {
         case .authorizedAlways:
+            gpsEnable = true
             // 位置情報取得を開始
             manager.startUpdatingLocation()
             break
         case .authorizedWhenInUse:
+            gpsEnable = true
             // 位置情報取得を開始
             manager.startUpdatingLocation()
             break
         case .notDetermined:
-            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
             break
         case .restricted:
-            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
             break
         case .denied:
-            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
             break
         default:
             break
         }
+        
+        self.refreshGpsIndicator()
     }
 }

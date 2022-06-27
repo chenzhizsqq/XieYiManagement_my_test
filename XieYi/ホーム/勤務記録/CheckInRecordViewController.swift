@@ -91,7 +91,7 @@ class CheckInRecordViewController: ExSubViewController, UITableViewDelegate, UIT
         let time = dataArray[indexPath.row]["statustime"]
         let date = dateFormatter.date(from: time as! String)
         
-        cell.titleLabel.text = DateUtils.stringFromDate(date: date!, format: "yyyy.MM.dd HH:mm:ss")
+        cell.titleLabel.text = DateUtils.stringFromDate(date: date!, format: "yyyy.MM.dd HH:mm")
         //cell.textLabel?.text = DateUtils.stringFromDate(date: date!, format: "yyyy.MM.dd HH:mm:ss")
         
         let statusText = dataArray[indexPath.row]["statustext"] as? String ?? ""

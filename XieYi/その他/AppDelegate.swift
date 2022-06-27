@@ -16,10 +16,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         IQKeyboardManager.shared.enable = true
         
-        JPUSHService.register(forRemoteNotificationTypes: UIUserNotificationType.badge.rawValue | UIUserNotificationType.badge.rawValue | UIUserNotificationType.alert.rawValue , categories: nil)
-        
-        // TODO: - AppKey && Channel
-        JPUSHService.setup(withOption: launchOptions, appKey: "3a8e6e08c9684748e7f80b58", channel: "AppStore", apsForProduction: true)
+//        JPUSHService.register(forRemoteNotificationTypes: UIUserNotificationType.badge.rawValue | UIUserNotificationType.badge.rawValue | UIUserNotificationType.alert.rawValue , categories: nil)
+//
+//        // TODO: - AppKey && Channel
+//        JPUSHService.setup(withOption: launchOptions, appKey: "3a8e6e08c9684748e7f80b58", channel: "AppStore", apsForProduction: true)
         
         return true
     }
@@ -40,7 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
           print("get the deviceToken  \(deviceToken)")
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidRegisterRemoteNotification"), object: deviceToken)
-        JPUSHService.registerDeviceToken(deviceToken as Data)
+//        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "DidRegisterRemoteNotification"), object: deviceToken)
+//        JPUSHService.registerDeviceToken(deviceToken as Data)
     }
 }

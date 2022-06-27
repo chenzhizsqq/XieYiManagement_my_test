@@ -247,13 +247,13 @@ extension LocationViewController {
             manager.startUpdatingLocation()
             break
         case .notDetermined:
-            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
             break
         case .restricted:
-            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
             break
         case .denied:
-            manager.requestAlwaysAuthorization()
+            manager.requestWhenInUseAuthorization()
             break
         default:
             break

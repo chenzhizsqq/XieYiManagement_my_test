@@ -3,6 +3,22 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "StatusConfirmViewController.textField(_:shouldChangeCharactersIn:replacementString:):StatusConfirmViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "textField.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "isInArea(lat:lon:):ExLocationManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "item[&quot;location&quot;] ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MemberViewController.tableView(_:cellForRowAt:):MemberViewController.swift">
          <PersistentStrings>
             <PersistentString

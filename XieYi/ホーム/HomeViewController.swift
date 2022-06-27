@@ -18,13 +18,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     var currentDate = ""
     var currentStatus = ""
+    // 現在勤務状態
+    var currentStatusValue = ""
     
     //var section1TextArray = ["勤務中", "勤務外", "休憩中", "移動中", "会議中"]
     var section1TextArray = ["勤務開始", "休憩開始", "会議開始", "移動開始", "勤務終了"]
     var section1ImageArray = ["person.fill.checkmark", "person.fill.xmark", "airplane", "car", "text.bubble"]
-    
-    ///选中了哪个页
-    var selectOptionMain = 0
+
+    var company = ""
+//    ///选中了哪个页
+//    var selectOptionMain = 0
     
     //    var section2TextArray = ["当日出勤", "组织架构", "我的审批"]
     //    var section2ImageArray = ["bag", "aspectratio", "tray.2"]
@@ -66,7 +69,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         
         NotificationCenter.default.addObserver(self, selector: #selector(getMessageRequest), name: NSNotification.Name(rawValue: "UserSetStatus"), object: nil)
         
-        NotificationCenter.default.addObserver(self, selector: #selector(getSelectOption(notification:)), name: .selectOptionName, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(getSelectOption(notification:)), name: .selectOptionName, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,6 +84,8 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         }
         
         if isLogin() {
+            // 获取Tenant请求
+            getTenantRequest()
             getMessageRequest()
         } else {
             let storyboard = self.storyboard!
@@ -132,7 +137,9 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                         self.messageArray = jsonData["result"]["messagelist"].object as! Array
                         self.recordArray = jsonData["result"]["recordlist"].object as! Array
                         if self.recordArray.count >= 1 {
-                            self.currentStatus = self.recordArray[0]["statustext"] as! String
+                            //self.currentStatus = self.recordArray[0]["statustext"] as! String
+                            self.currentStatus = self.getDispSattus(statusValue: self.recordArray[0]["statusvalue"] as! String)
+                            self.currentStatusValue =  self.recordArray[0]["statusvalue"] as! String
                         }
                         self.collection.reloadData()
                     }
@@ -140,6 +147,46 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                     print(error)
                 }
                 
+            })
+        }
+    }
+    
+    // MARK: - 获取Tenant请求
+    @objc func getTenantRequest() {
+        if getTokenFunc().count != 0 {
+            
+            struct Parameter: Encodable {
+                let app: String
+                let token: String
+                let tenant: String
+                let hpid: String
+                let device: String
+            }
+            
+            let para = Parameter(app: "EtOfficeGetTenant", token: getTokenFunc(), tenant: getTenantidFunc(), hpid: getHpidFunc(), device: "iOS")
+            
+            AF.request(BaseURL, method: .post, parameters: para, encoder: JSONParameterEncoder.default).responseJSON(completionHandler: { (response) in
+                
+                debugPrint(response)
+                
+                let jsonData = JSON(response.data as Any)
+
+                if (jsonData["status"].intValue == 0) {
+
+                        if(jsonData["result"].count != 0){
+                            jsonData["result"]["tenantlist"].array?.forEach({ json in
+                                if (json["startflg"] == "1" ) {
+                                    
+                                    self.company = json["tenantname"].stringValue
+                                    
+                                    self.collection.reloadData()
+
+                                }
+                            })
+                        }
+                } else {
+
+                }
             })
         }
     }
@@ -155,7 +202,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HomeCollectionHeader", for: indexPath) as! HomeCollectionHeader
         
         if indexPath.section == 0 {
-            header.textLabel.text = "株式会社写易"
+            header.textLabel.text = company
         } else if indexPath.section == 1 {
             //header.textLabel.text = "共通機能"
             header.textLabel.text = "勤務状態変更登録"
@@ -205,66 +252,69 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if indexPath.section == 0 {
             
         } else if indexPath.section == 1 {
+            let (buttonText, buttonEnable) = getButtonStatusText(statusValue: currentStatusValue, buttonIndex: indexPath.row)
+            if !buttonEnable {
+                return
+            }
+            
             AudioServicesPlayAlertSound(SystemSoundID(1519))
             if indexPath.row == 0 {
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 1
-                nextView.selectOption = selectOptionMain
+                nextView.currentStatusValue = currentStatusValue
+                nextView.currentStatusText = buttonText
+                //nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
-//                self.navigationController?.present(nextView, animated: true, completion: {
-//
-//                })
+
             } else if indexPath.row == 1 {
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 2
-                nextView.selectOption = selectOptionMain
+                nextView.currentStatusValue = currentStatusValue
+                nextView.currentStatusText = buttonText
+                //nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
-//                self.navigationController?.present(nextView, animated: true, completion: {
-//
-//                })
+
             } else if indexPath.row == 2 {
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 3
-                nextView.selectOption = selectOptionMain
+                nextView.currentStatusValue = currentStatusValue
+                nextView.currentStatusText = buttonText
+                //nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
-//                self.navigationController?.present(nextView, animated: true, completion: {
-//
-//                })
+
             } else if indexPath.row == 3 {
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 4
-                nextView.selectOption = selectOptionMain
+                nextView.currentStatusValue = currentStatusValue
+                nextView.currentStatusText = buttonText
+                //nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
-//                self.navigationController?.present(nextView, animated: true, completion: {
-//
-//                })
+
             } else if indexPath.row == 4 {
                 let storyboard = self.storyboard!
                 let nextView = storyboard.instantiateViewController(withIdentifier: "Status") as! StatusConfirmViewController
                 nextView.code = 5
-                nextView.selectOption = selectOptionMain
+                nextView.currentStatusValue = currentStatusValue
+                nextView.currentStatusText = buttonText
+                //nextView.selectOption = selectOptionMain
                 nextView.modalPresentationStyle = .fullScreen
                 self.navigationController?.pushViewController(nextView, animated: true)
-//                self.navigationController?.present(nextView, animated: true, completion: {
-//
-//                })
+
             }
         } else if indexPath.section == 2 {
             let storyboard = self.storyboard!
             let nextView = storyboard.instantiateViewController(withIdentifier: "CheckIn") as! CheckInRecordViewController
             nextView.modalPresentationStyle = .fullScreen
             self.navigationController?.pushViewController(nextView, animated: true)
-//            self.navigationController?.present(nextView, animated: true, completion: {
-//
-//            })
+
         }
     }
     
@@ -291,55 +341,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             let cell : HomeCollectionCell1 = collection.dequeueReusableCell(withReuseIdentifier: "HomeCollectionCell1", for: indexPath) as! HomeCollectionCell1
             cell.layer.cornerRadius = 10
             cell.layer.masksToBounds = true
-            cell.textLabel.text = section1TextArray[indexPath.row]
+            //cell.textLabel.text = section1TextArray[indexPath.row]
             
-            if(recordArray.count > 0 ){
-                //["勤務中"  , "勤務外" , "休憩中"  , "移動中" , "会議中"]
-                //["勤務開始", "休憩開始", "会議開始", "移動開始", "勤務終了"]
-                let statusvalue = getStatusvalue()
-                print("!!! statusvalue:\(String(statusvalue))  indexPath：\(String(indexPath.row))   selectOptionMain:\(String(selectOptionMain))")
-                
-                cell.isUserInteractionEnabled = true
-                switch(selectOptionMain){
-                case 1:
-                    if(indexPath.row == 0 ){
-                        cell.isUserInteractionEnabled = false
-                    }
-                    break
-                case 2:
-                    if(   indexPath.row == 0
-                       || indexPath.row == 2
-                       || indexPath.row == 3
-                       || indexPath.row == 4){
-                        cell.isUserInteractionEnabled = false
-                    }
-                    break
-                case 3:
-                    if(   indexPath.row == 0
-                       || indexPath.row == 1
-                       || indexPath.row == 3
-                       || indexPath.row == 4){
-                        cell.isUserInteractionEnabled = false
-                    }
-                    break
-                case 4:
-                    if(   indexPath.row == 0
-                       || indexPath.row == 1
-                       || indexPath.row == 2
-                       || indexPath.row == 4){
-                        cell.isUserInteractionEnabled = false
-                    }
-                    break
-                case 5:
-                    if(indexPath.row != 0 ){
-                        cell.isUserInteractionEnabled = false
-                    }
-                    break
-                default:
-                    debugPrint("statusvalue default")
-                    break
-                }
+            let (buttonText, buttonEnable) = getButtonStatusText(statusValue: currentStatusValue, buttonIndex: indexPath.row)
+            cell.textLabel.text = buttonText
+            if buttonEnable {
+                cell.backgroundColor = UIColor.white
+            } else {
+                cell.backgroundColor = UIColor.lightGray
             }
+            
             cell.image.image = UIImage.init(systemName: section1ImageArray[indexPath.row])
             tempCell = cell
             
@@ -359,7 +370,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 let time = recordArray[0]["statustime"] as? String
                 let date = dateFormatter.date(from: time!)
-                let finalDate = DateUtils.stringFromDate(date: date!, format: "yyyy.MM.dd HH:mm:ss")
+                let finalDate = DateUtils.stringFromDate(date: date!, format: "yyyy.MM.dd HH:mm")
                 let status = recordArray[0]["statustext"] as? String ?? ""
                 let memoText = recordArray[0]["memo"] as? String  ?? ""
                 let text0 = "・" + finalDate + " " + status + " " + memoText
@@ -367,7 +378,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
                 
                 let time1 = recordArray[1]["statustime"] as? String
                 let date1 = dateFormatter.date(from: time1!)
-                let finalDate1 = DateUtils.stringFromDate(date: date1!, format: "yyyy.MM.dd HH:mm:ss")
+                let finalDate1 = DateUtils.stringFromDate(date: date1!, format: "yyyy.MM.dd HH:mm")
                 let status1 = recordArray[1]["statustext"] as? String ?? ""
                 let memoText1 = recordArray[1]["memo"] as? String  ?? ""
                 let text1 = "・" + finalDate1 + " " + status1 + " " + memoText1
@@ -433,10 +444,195 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     }
     
     
-    // MARK: - 获取选中的选项
-    @objc func getSelectOption(notification: NSNotification?) {
-        selectOptionMain = notification?.userInfo?["selectOption"] as? Int ?? 0
-        print("!!! selectOptionMain getSelectOption(): \(selectOptionMain)")
+//    // MARK: - 获取选中的选项
+//    @objc func getSelectOption(notification: NSNotification?) {
+//        selectOptionMain = notification?.userInfo?["selectOption"] as? Int ?? 0
+//        print("!!! selectOptionMain getSelectOption(): \(selectOptionMain)")
+//    }
+    // MARK: - 勤務状態から表示するステータス文字列を取得
+    func getDispSattus(statusValue: String) -> String {
+        switch statusValue {
+            // 勤務開始
+        case "1":
+            return "勤務中"
+            // 勤務終了
+        case "2":
+            return "勤務外"
+            // 休憩開始
+        case "3":
+            return "休憩中"
+            // 休憩終了
+        case "4":
+            return "勤務中"
+            // 会議開始
+        case "5":
+            return "会議中"
+            // 会議終了
+        case "6":
+            return "勤務中"
+            // 移動開始
+        case "7":
+            return "移動中"
+            // 移動終了
+        case "8":
+            return "勤務中"
+            
+        default:
+            return ""
+        }
+
+    }
+    
+    // MARK: - 勤務状態変更ボタン文字列およびボタン活性状態を取得
+    func getButtonStatusText(statusValue: String, buttonIndex: Int) -> (String, Bool) {
+        switch statusValue {
+            // 勤務開始
+        case "1":
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", false)
+            case 1:
+                return ("休憩開始", true)
+            case 2:
+                return ("会議開始", true)
+            case 3:
+                return ("移動開始", true)
+            case 4:
+                return ("勤務終了", true)
+            default:
+                return ("", false)
+            }
+            
+            // 勤務終了
+        case "2":
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", true)
+            case 1:
+                return ("休憩開始", false)
+            case 2:
+                return ("会議開始", false)
+            case 3:
+                return ("移動開始", false)
+            case 4:
+                return ("勤務終了", false)
+            default:
+                return ("", false)
+            }
+            // 休憩開始
+        case "3":
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", false)
+            case 1:
+                return ("休憩終了", true)
+            case 2:
+                return ("会議開始", false)
+            case 3:
+                return ("移動開始", false)
+            case 4:
+                return ("勤務終了", false)
+            default:
+                return ("", false)
+            }
+            // 休憩終了
+        case "4":
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", false)
+            case 1:
+                return ("休憩開始", true)
+            case 2:
+                return ("会議開始", true)
+            case 3:
+                return ("移動開始", true)
+            case 4:
+                return ("勤務終了", true)
+            default:
+                return ("", false)
+            }
+            // 会議開始
+        case "5":
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", false)
+            case 1:
+                return ("休憩開始", false)
+            case 2:
+                return ("会議終了", true)
+            case 3:
+                return ("移動開始", false)
+            case 4:
+                return ("勤務終了", false)
+            default:
+                return ("", false)
+            }
+            // 会議終了
+        case "6":
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", false)
+            case 1:
+                return ("休憩開始", true)
+            case 2:
+                return ("会議開始", true)
+            case 3:
+                return ("移動開始", true)
+            case 4:
+                return ("勤務終了", true)
+            default:
+                return ("", false)
+            }
+            // 移動開始
+        case "7":
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", false)
+            case 1:
+                return ("休憩開始", false)
+            case 2:
+                return ("会議開始", false)
+            case 3:
+                return ("移動終了", true)
+            case 4:
+                return ("勤務終了", false)
+            default:
+                return ("", false)
+            }
+            // 移動終了
+        case "8":
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", false)
+            case 1:
+                return ("休憩開始", true)
+            case 2:
+                return ("会議開始", true)
+            case 3:
+                return ("移動開始", true)
+            case 4:
+                return ("勤務終了", true)
+            default:
+                return ("", false)
+            }
+            
+        default:
+            switch buttonIndex {
+            case 0:
+                return ("勤務開始", true)
+            case 1:
+                return ("休憩開始", false)
+            case 2:
+                return ("会議終了", false)
+            case 3:
+                return ("移動開始", false)
+            case 4:
+                return ("勤務終了", false)
+            default:
+                return ("", false)
+            }
+        }
+
     }
 }
 
@@ -495,7 +691,7 @@ class DateUtils {
     }
 }
 
-// MARK: - 选择项目的Key
-extension Notification.Name {
-   static let selectOptionName = Notification.Name("selectOptionName")
-}
+//// MARK: - 选择项目的Key
+//extension Notification.Name {
+//   static let selectOptionName = Notification.Name("selectOptionName")
+//}

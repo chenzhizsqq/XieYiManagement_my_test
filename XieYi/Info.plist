@@ -29,12 +29,8 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>APP CAMERA</string>
-	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>このアプリは、作業場所の登録、および従業員が勤務情報を更新時に作業場所を特定するため、位置情報を取得します。従業員の位置を随時追跡はしません。</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>このアプリは、作業場所の登録、および従業員が勤務情報を更新時に作業場所を特定するため、位置情報を取得します。従業員の位置を随時追跡はしません。</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>このアプリは、作業場所の登録、および従業員が勤務情報を更新時に作業場所を特定するため、位置情報を取得します。従業員の位置を随時追跡はしません。</string>
+	<string>位置情報をONにすることで、良く使う勤務場所を登録して次から自動入力できます。</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>APP PHOTO</string>
 	<key>UIApplicationSceneManifest</key>
